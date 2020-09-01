@@ -30,7 +30,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "_gitAddAll": "git add .",
-    "_gitCommit": "git commit -m 'Какие то изменения'",
+    "_gitCommit": "git commit -m 'any'",
     "_npmRunDeploy": "npm run deploy",
     "_push": "git push -u origin master"
 

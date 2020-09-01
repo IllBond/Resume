@@ -1,5 +1,5 @@
 import * as axios from "axios";
-
+import {news} from '../media/news'
 
 let instance = axios.create({
     withCredentials: true,
@@ -67,6 +67,9 @@ export let APIGet_Captcha = () => {
 };
 
 export let API_News = () => {
-    return axios.get('https://newsapi.org/v2/top-headlines?country=ua&apiKey=8fc9533cea184cbd8aca3f63b7d3c68b')
+    // только localhost
+    // return axios.get('https://newsapi.org/v2/top-headlines?country=ua&apiKey=8fc9533cea184cbd8aca3f63b7d3c68b')
+
+    return axios.get(news)
 }
 
