@@ -1,4 +1,4 @@
-import React, {Component, useState} from "react";
+import React, {Component} from "react";
 
 
 class Game extends Component {
@@ -93,16 +93,17 @@ class Game extends Component {
             };
 
             Snake.prototype.move = function () {
+                var newHead;
                 let head = this.segments[0];
                 this.direction = this.nextDirection;
                 if (this.direction === 'right') {
-                    var newHead = new Block(head.col + 1, head.row)
+                    newHead = new Block(head.col + 1, head.row)
                 } else if (this.direction === 'down') {
-                    var newHead = new Block(head.col, head.row + 1)
+                    newHead = new Block(head.col, head.row + 1)
                 } else if (this.direction === 'left') {
-                    var newHead = new Block(head.col - 1, head.row)
+                    newHead = new Block(head.col - 1, head.row)
                 } else if (this.direction === 'up') {
-                    var newHead = new Block(head.col, head.row - 1)
+                    newHead = new Block(head.col, head.row - 1)
                 }
 
                 if (this.checkCollision(newHead)) {

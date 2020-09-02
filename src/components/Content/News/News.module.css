@@ -66,6 +66,11 @@
     color: #b80007;
 }
 
+.red {
+    color: #b80007;
+    margin-left: 50px;
+}
+
 .news_web {
     display: grid;
     grid-template-columns: auto;

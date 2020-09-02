@@ -40,17 +40,20 @@ class CalculatorAlt extends React.Component {
     render() {
         if (this.state.request) {
             let calculate = () => {
-                let unit = this.state.request.distance.unit
-                let value = this.state.request.distance.value
-                let convertTo = this.state.request.convert_to
+                let unit = this.state.request.distance.unit;
+                let value = this.state.request.distance.value;
+                let convertTo = this.state.request.convert_to;
                 let calc = +(value / this.state.data[unit].value * this.state.data[convertTo].value).toFixed(2)
                 console.log('Выходные данные >')
                 console.log({unit: convertTo, value: calc})
                 console.log('< Выходные данные')
                 return {unit: convertTo, value: calc}
             };
+            if (!!calculate) {
+                return null
+            }
             return <>
-                <h3></h3>
+                <h3> </h3>
                 <div>
                     <div> - По умолчанию доступны Метр, Сантиметр, Дюйм, Фут </div>
                     {/*<div> - Входящие параметры: - src\JSON\request.json </div>*/}

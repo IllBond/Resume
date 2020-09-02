@@ -59,7 +59,7 @@ const Profile = (props) => {
                             <input
                                 onClick={editModeOn}
                                 type="button"
-                                value='Изменить фото'/>
+                                value='Изменить фото'/> <span className={style.grey}> {'<'} Кликни что бы изменить статус</span>
                         </div> : ''}
                     {editIMG ? <div>
                         <input onChange={loadIMG}
@@ -81,7 +81,8 @@ const Profile = (props) => {
                         {editDataMode ?
                             // eslint-disable-next-line react/jsx-pascal-case
                             <FormEditData_ReduxForm initialValues={props.state} onSubmit={onSubmit} props={props}/> :
-                            <div onClick={editDataModeOn}>
+                            <div onClick={props.isOwner ? editDataModeOn : null}>
+                                {props.isOwner && <span className={style.grey}>Кликни что бы изменить статус</span>}
                                 <div>ID: {props.state.userId}</div>
                                 <div>Обо мне: {props.state.aboutMe}</div>
                                 <div>{!props.state.lookingForAJob ? 'Не ищу работу' : 'Ищу работу'}</div>

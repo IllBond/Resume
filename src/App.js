@@ -8,7 +8,7 @@ import Content from "./components/Content/Content";
 import {THUNK_inital} from "./Redux/appReducer";
 import {connect, Provider} from "react-redux";
 
-import {BrowserRouter, HashRouter} from "react-router-dom";
+import {HashRouter} from "react-router-dom";
 import store from "./Redux/redux-store";
 import {setErrorThunk} from "./Redux/errorReducer";
 

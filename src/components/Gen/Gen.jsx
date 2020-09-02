@@ -139,10 +139,8 @@ class Gen extends Component {
                     }
                 }
 
-                nd.map(key => {
-                    population = population.filter((item, index) => index !== key)
-
-                })
+                // eslint-disable-next-line array-callback-return
+                nd.map(key => {population = population.filter((item, index) => index !== key)})
             };
             let secondSelection = () => {
                 let nd = [];
@@ -161,6 +159,7 @@ class Gen extends Component {
                     }
                 }
 
+                // eslint-disable-next-line array-callback-return
                 nd.map(key => {
                     population = population.filter((item, index) => index !== key)
                 })

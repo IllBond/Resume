@@ -23,9 +23,11 @@ class ProfileС extends React.Component {
 
     componentDidMount() {
         if (!this.props.match.params.userID) {
-            let id = this.props.id;
-            if (id) {
-                this.props.match.params.userID = id
+
+            if (this.props.id) {
+                this.props.match.params.userID = this.props.id
+                this.props.THUNK_getUser(this.props.match.params.userID);
+                this.props.THUNK_GetUserStatus(this.props.match.params.userID);
             } else {
                 this.props.history.push('/users')
             }

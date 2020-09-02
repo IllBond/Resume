@@ -60,3 +60,7 @@
 #map {
     grid-template-columns: 1fr
 }
+
+.red {
+    color: #b80007;
+}

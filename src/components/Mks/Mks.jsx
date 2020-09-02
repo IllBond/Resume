@@ -12,23 +12,38 @@ class Mks extends Component {
         time: '',
         date: '',
         stop: null,
-        updater: true
+        updater: true,
+        isinitCoor:true
     };
-
 
     getData() {
         let getAllData = async () => {
             try {
-                let response = await fetch('http://api.open-notify.org/iss-now.json')
-                let data = await response.json()
+                // let response = await fetch('http://api.open-notify.org/iss-now.json')
+               if (this.state.isinitCoor) {
+                   let response = await fetch('https://my-json-server.typicode.com/IllBond/API_iss-now/db')
+                   let data = await response.json()
 
-                this.setState({
-                    coorLat: data.iss_position.latitude
-                });
+                   this.setState({
+                       coorLat: data.iss_position.latitude
+                   });
 
-                this.setState({
-                    coorLong: data.iss_position.longitude
-                });
+                   this.setState({
+                       coorLong: data.iss_position.longitude
+                   });
+
+                   this.setState({
+                       isinitCoor: false
+                   });
+               } else {
+                   this.setState({
+                       coorLat: Number(this.state.coorLat) + 5
+                   });
+
+                   this.setState({
+                       coorLong: Number(this.state.coorLong) + 4
+                   });
+               }
 
                 let myLatLng = {lat: +this.state.coorLat, lng: +this.state.coorLong};
 
@@ -51,7 +66,8 @@ class Mks extends Component {
             }
 
             try {
-                let response = await fetch('https://api.open-notify.org/astros.json')
+                // let response = await fetch('https://api.open-notify.org/astros.json')
+                let response = await fetch('https://my-json-server.typicode.com/IllBond/API_astros/db')
                 let data = await response.json();
                 this.setState({
                     people: data.people
@@ -99,12 +115,16 @@ class Mks extends Component {
     start = () => {
         this.getData();
         this.setState({updater: true})
-    }
+    };
 
-
+np
     render() {
         return (
             <>
+                <h3 className={style.red}>(На данной странице используестя не настоящее api так как в api есть ряд ограничений. Посмотреть пример работы страницы с реальным api можно по <span> </span>
+                    {/* eslint-disable-next-line react/jsx-no-target-blank */}
+                     <a target='_blank'
+                    href="http://ilyabondrez.000webhostapp.com/%D0%BC%D0%BA%D1%81/">ССЫЛКЕ</a> (с http протоколом) )</h3>
                 <div className={style.main}>
                     <div className={style.block1}>
                         <div>
@@ -148,8 +168,7 @@ class Mks extends Component {
                             <h3>Члены экипажа МКС (в реальном времени)</h3>
                         </div>
                         <div className={style.profiles}>
-                            {this.state.people.length > 0 ? this.state.people.map(item =>
-                                <div className={style.profile}>
+                            {this.state.people.length > 0 ? this.state.people.map((item, i) => <div key={'it'+i} className={style.profile}>
                                     <div className={style.photo}>
                                         <img
                                             className={style.imgPersonal}

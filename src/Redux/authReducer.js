@@ -58,7 +58,6 @@ export const THUNK_auth = () => async (dispatch) => {
     if (responce.data.resultCode === 0) {
         let data = responce.data.data
         dispatch(getAuthData(data.id, data.login, data.email, true))
-        dispatch(stopSubmit('login', {_error: null}))
     }
 };
 

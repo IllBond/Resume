@@ -16,3 +16,7 @@
     margin: 3px;
     color: red;
 }
+
+ .grey {
+     color: rgba(255, 0, 10, 0.96);
+ }

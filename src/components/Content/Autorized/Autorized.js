@@ -5,11 +5,14 @@ import {connect} from "react-redux";
 import {required} from "../../FORM/validate";
 import {Input_c} from "../../FORM/ErrorComponent";
 import {Redirect} from "react-router-dom";
-
+import style from './Autorized.module.css'
 
 let LoginRedux = (props) => {
 
     return (
+        <>
+        <div className={style.red}>Логин → <span contentEditable>prince.dp.u@gmail.com</span></div>
+        <div className={style.red}>Пароль → <span contentEditable>qwe123</span></div>
         <form onSubmit={props.handleSubmit}>
             <div><Field  validation={[required]} component={Input_c} name={'login'} type='text' placeholder='Логин'/></div>
             <div><Field validation={[required]} component={Input_c}  name={'password'} type='password' placeholder='Пароль'/></div>
@@ -27,6 +30,7 @@ let LoginRedux = (props) => {
             </div>
             <div><button>Залогиниться</button></div>
         </form>
+            </>
     )
 };
 
