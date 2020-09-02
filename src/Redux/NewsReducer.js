@@ -25,6 +25,8 @@ export const getNews = (news) => {
 };
 
 export const THUNK_getNews = () => async (dispatch) => {
+
     let responce = await API_News()
+
     dispatch(getNews(responce.data))
 };

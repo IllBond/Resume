@@ -15,6 +15,7 @@ let News = (props) => {
                         <div className={style.description}>{item.description} </div>
                     </div>
                     <div>
+                        {/* eslint-disable-next-line react/jsx-no-target-blank */}
                         <div><a className={style.link} target='_blank' href={item.url}>Перейти</a> </div>
                     </div>
                 </div>
