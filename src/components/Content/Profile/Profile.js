@@ -51,7 +51,7 @@ const Profile = (props) => {
             </div>
             {props.state.userId ?
                 <div>
-                    {props.isOwner ? '' : <div className={style.grey}>Вы находитесь на странице пользователя {props.state.userId}, проверьте как выглядит ваша страница. <NavLink to={'/profile'}>Перейти</NavLink></div>}
+                    {props.isOwner || !props.isAuth? (props.isOwner ? '' : <div className={style.grey}>Не забудьте авторизоваться что бы посмотреть как выглядит страница владельца <NavLink to={'/authorized'}>Авторизоватся</NavLink></div>): <div className={style.grey}>Вы находитесь на странице пользователя {props.state.userId}, проверьте как выглядит ваша страница. <NavLink to={'/profile'}>Перейти</NavLink></div>}
                     <img width='150'
                          alt='изображение пользователя'
                          src={props.state.photos.large ? props.state.photos.large : 'http://dl4.joxi.net/drive/2020/05/24/0028/3272/1866952/52/6f84020ab1.jpg'}

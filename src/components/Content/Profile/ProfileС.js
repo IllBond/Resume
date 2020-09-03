@@ -25,7 +25,7 @@ class ProfileС extends React.Component {
         if (!this.props.match.params.userID) {
 
             if (this.props.id) {
-                this.props.match.params.userID = this.props.id
+                this.props.match.params.userID = this.props.id;
                 this.props.THUNK_getUser(this.props.match.params.userID);
                 this.props.THUNK_GetUserStatus(this.props.match.params.userID);
             } else {
@@ -47,7 +47,7 @@ class ProfileС extends React.Component {
                 if (id) {
                     this.props.match.params.userID = id
                 } else {
-                    this.props.history.push('/users')
+                    this.props.history.push('/authorized')
                 }
             }
             this.props.THUNK_getUser(this.props.match.params.userID)
@@ -56,9 +56,10 @@ class ProfileС extends React.Component {
     }
 
     render() {
-        let isOwner = this.props.match.params.userID === this.props.id
+        let isOwner = this.props.match.params.userID === this.props.id;
         return <Profile
             isOwner={isOwner}
+            isAuth ={this.props.id}
             THUNK_setStatus={this.props.THUNK_setStatus}
             THUNK_loadIMG={this.props.THUNK_loadIMG}
             THUNK_Updatae_users_data={this.props.THUNK_Updatae_users_data}
