@@ -24,6 +24,7 @@ let Paginator = (props) => {
     return <div className={style.paginator}>
         <div className={style.selected}>
             Воспользуйтесь прокруткой что бы получить доступ ко всем пользователям
+            <div>В самом конце есть пользователи с данными</div>
         </div>
         <div>
             <input className={style.range} type="range" min="0" max={pages.length - sizeOnePorion} value={PortionPage}

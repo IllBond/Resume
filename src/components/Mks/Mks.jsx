@@ -67,13 +67,13 @@ class Mks extends Component {
 
             try {
                 // let response = await fetch('https://api.open-notify.org/astros.json')
-                let response = await fetch('https://my-json-server.typicode.com/IllBond/API_astros/db')
+                let response = await fetch('https://my-json-server.typicode.com/IllBond/API_astros/db');
                 let data = await response.json();
                 this.setState({
                     people: data.people
                 })
             } catch (error) {
-                console.log('Пожалуйста дайте прогармме загрузится')
+                console.log('Пожалуйста дайте прогармме загрузится');
                 console.log(error)
                 // throw new Error(error)
             }
@@ -117,7 +117,6 @@ class Mks extends Component {
         this.setState({updater: true})
     };
 
-np
     render() {
         return (
             <>

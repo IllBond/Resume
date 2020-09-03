@@ -29,7 +29,7 @@ class ProfileС extends React.Component {
                 this.props.THUNK_getUser(this.props.match.params.userID);
                 this.props.THUNK_GetUserStatus(this.props.match.params.userID);
             } else {
-                this.props.history.push('/users')
+                this.props.history.push('/authorized')
             }
         } else {
             this.props.THUNK_getUser(this.props.match.params.userID);
