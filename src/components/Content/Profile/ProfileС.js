@@ -56,6 +56,7 @@ class ProfileС extends React.Component {
     }
 
     render() {
+
         let isOwner = this.props.match.params.userID === this.props.id;
         return <Profile
             isOwner={isOwner}
@@ -66,6 +67,7 @@ class ProfileС extends React.Component {
             status={this.props.status}
             state={this.props.userData}
             MainPreloader={this.props.MainPreloader}
+            handleStateMainPreloader={this.props.handleStateMainPreloader}
             descriptionPreloader={this.props.descriptionPreloader}
            />
 
@@ -88,4 +90,5 @@ export default connect(mapStateToProps, {
     THUNK_setStatus,
     THUNK_GetUserStatus,
     THUNK_loadIMG,
-    THUNK_Updatae_users_data,handleStateMainPreloader})(withRouter(ProfileС));
+    THUNK_Updatae_users_data,
+    handleStateMainPreloader})(withRouter(ProfileС));
